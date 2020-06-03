@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DisplayBranchComponent } from './display-branch/display-branch.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayBranchComponent
   ],
   imports: [
     BrowserModule,
@@ -16,3 +18,5 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
