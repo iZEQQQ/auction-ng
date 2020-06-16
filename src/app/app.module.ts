@@ -7,6 +7,8 @@ import { DisplayBranchComponent } from './display-branch/display-branch.componen
 import { DisplayBranchListComponent } from './display-branch-list/display-branch-list.component';
 import { BranchListViewComponent } from './branch-list-view/branch-list-view.component';
 import {BranchService} from "./branch.service";
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {BranchService} from "./branch.service";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [BranchService],
   bootstrap: [AppComponent]

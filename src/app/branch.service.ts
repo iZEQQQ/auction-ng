@@ -1,33 +1,39 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {GetBranchesResponse} from "./dto/get-branches-response";
+import {map} from "rxjs/operators";
 import {Branch} from "./model/branch";
+import {GetBranchResponse} from "./dto/get-branch-response";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BranchService {
 
-  constructor() {
+  private http: HttpClient;
+
+  constructor(http: HttpClient) {
+    this.http = http;
   }
 
-  findBranches(): Observable<Branch[]> {
-    return new Observable(subscriber => {
-      let branches = [];
-      let branch = new Branch();
-      branch.id = 1;
-      branch.name = 'dzial';
-      let branch1 = new Branch();
-      branch1.id = 2;
-      branch1.name = 'dzial2';
-      let branch2 = new Branch();
-      branch2.id = 3;
-      branch2.name = 'dzial3';
-      branches[0] = branch;
-      branches[1] = branch1;
-      branches[2] = branch2;
-
-      subscriber.next(branches);
-    });
+  findBranches(): Observable<number[]> {
+    return this.http.get<GetBranchesResponse>('http://localhost:8080/api/branches')
+      .pipe(map(value => {
+        return value.ids;
+      }));
   }
+
+  getBranch(id: number): Observable<Branch> {
+    return this.http.get<GetBranchResponse>('http://localhost:8080/api/branches/' + id)
+      .pipe(map(value => {
+        let branch: Branch = new Branch();
+        branch.name = value.name;
+        branch.id = value.id;
+        return branch;
+      }));
+  }
+
+
 
 }
