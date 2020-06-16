@@ -1,4 +1,5 @@
 <div *ngIf="branch">
   <p>Id: {{branch.id}}</p>
   <p>Name: {{branch.name}}</p>
+  <a [routerLink]="'/branches/'+branch.id+'/edit'">Edit</a>
 </div>

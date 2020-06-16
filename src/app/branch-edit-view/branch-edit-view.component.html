@@ -1,0 +1,6 @@
+<article>
+  <form (ngSubmit)="onSubmit()" *ngIf="branch">
+    <input type="text" [(ngModel)]="branch.name" name="name">
+    <input type="submit">
+  </form>
+</article>

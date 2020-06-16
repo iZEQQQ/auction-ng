@@ -5,6 +5,7 @@ import {GetBranchesResponse} from "./dto/get-branches-response";
 import {map} from "rxjs/operators";
 import {Branch} from "./model/branch";
 import {GetBranchResponse} from "./dto/get-branch-response";
+import {PutBranchRequest} from "./dto/put-branch-request";
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ export class BranchService {
       }));
   }
 
-
+  putBranch(branch: Branch) {
+    let req = new PutBranchRequest();
+    req.name = branch.name;
+    this.http.put<any>('http://localhost:8080/api/branches/' + branch.id, req);
+  }
 
 }

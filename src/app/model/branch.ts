@@ -2,7 +2,7 @@ export class Branch {
 
   private _id: number;
 
-  private _name: String;
+  private _name: string;
 
   get id(): number {
     return this._id;
@@ -12,11 +12,11 @@ export class Branch {
     this._id = id;
   }
 
-  get name(): String {
+  get name(): string {
     return this._name;
   }
 
-  set name(value: String) {
+  set name(value: string) {
     this._name = value;
   }
 

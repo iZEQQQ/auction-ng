@@ -8,6 +8,8 @@ import { DisplayBranchListComponent } from './display-branch-list/display-branch
 import { BranchListViewComponent } from './branch-list-view/branch-list-view.component';
 import {BranchService} from "./branch.service";
 import {HttpClientModule} from "@angular/common/http";
+import { BranchEditViewComponent } from './branch-edit-view/branch-edit-view.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,12 +17,14 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     DisplayBranchComponent,
     DisplayBranchListComponent,
-    BranchListViewComponent
+    BranchListViewComponent,
+    BranchEditViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [BranchService],
   bootstrap: [AppComponent]
