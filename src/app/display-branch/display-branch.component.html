@@ -1,5 +1,6 @@
 <div *ngIf="branch">
   <p>Id: {{branch.id}}</p>
   <p>Name: {{branch.name}}</p>
-  <a [routerLink]="'/branches/'+branch.id+'/edit'">Edit</a>
+  <a [routerLink]="'/branches/'+branch.id+'/edit'">Edit</a>&nbsp;
+  <a [routerLink]="'/branches/'+branch.id+'/categories'">Categories</a>
 </div>

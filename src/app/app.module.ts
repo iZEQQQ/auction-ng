@@ -10,6 +10,7 @@ import {BranchService} from "./branch.service";
 import {HttpClientModule} from "@angular/common/http";
 import { BranchEditViewComponent } from './branch-edit-view/branch-edit-view.component';
 import {FormsModule} from "@angular/forms";
+import { CategoryListViewComponent } from './category-list-view/category-list-view.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     DisplayBranchComponent,
     DisplayBranchListComponent,
     BranchListViewComponent,
-    BranchEditViewComponent
+    BranchEditViewComponent,
+    CategoryListViewComponent
   ],
   imports: [
     BrowserModule,
