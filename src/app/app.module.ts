@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { BranchEditViewComponent } from './branch-edit-view/branch-edit-view.component';
 import {FormsModule} from "@angular/forms";
 import { CategoryListViewComponent } from './category-list-view/category-list-view.component';
+import { DisplayCategoryListComponent } from './display-category-list/display-category-list.component';
+import { DisplayCategoryComponent } from './display-category/display-category.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { CategoryListViewComponent } from './category-list-view/category-list-vi
     DisplayBranchListComponent,
     BranchListViewComponent,
     BranchEditViewComponent,
-    CategoryListViewComponent
+    CategoryListViewComponent,
+    DisplayCategoryListComponent,
+    DisplayCategoryComponent
   ],
   imports: [
     BrowserModule,

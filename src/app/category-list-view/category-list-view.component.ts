@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BranchService} from "../branch.service";
 import {Category} from "../model/category";
@@ -17,12 +17,18 @@ export class CategoryListViewComponent implements OnInit {
     return this._categories;
   }
 
-  constructor(private root: ActivatedRoute, private service: CategoryService) { }
+  constructor(private root: ActivatedRoute, private service: CategoryService) {
+  }
 
   ngOnInit(): void {
-    let id = this.root.snapshot.paramMap.get('id')
-    this.service.findCategories(Number(id)).subscribe(categories => {
-      this._categories = categories;
+    this._categories = [];
+    let idBranch = this.root.snapshot.paramMap.get('id')
+    this.service.findCategories(Number(idBranch)).subscribe(categories => {
+      categories.forEach(idCategory => {
+        this.service.getCategory(Number(idBranch), idCategory).subscribe(category => {
+          this._categories.push(category);
+        })
+      })
     });
   }
 
