@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import { CategoryListViewComponent } from './category-list-view/category-list-view.component';
 import { DisplayCategoryListComponent } from './display-category-list/display-category-list.component';
 import { DisplayCategoryComponent } from './display-category/display-category.component';
+import { CategoryEditViewComponent } from './category-edit-view/category-edit-view.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DisplayCategoryComponent } from './display-category/display-category.co
     BranchEditViewComponent,
     CategoryListViewComponent,
     DisplayCategoryListComponent,
-    DisplayCategoryComponent
+    DisplayCategoryComponent,
+    CategoryEditViewComponent
   ],
   imports: [
     BrowserModule,

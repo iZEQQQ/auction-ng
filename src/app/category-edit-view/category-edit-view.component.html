@@ -1,0 +1,6 @@
+<article>
+  <form (ngSubmit)="onSubmit()" *ngIf="category">
+    <input type="text" [(ngModel)]="category.name" name="name">
+    <input type="submit">
+  </form>
+</article>
