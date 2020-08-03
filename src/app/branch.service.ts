@@ -18,7 +18,7 @@ export class BranchService {
     this.http = http;
   }
 
-  findBranches(): Observable<number[]> {
+  getBranches(): Observable<number[]> {
     return this.http.get<GetBranchesResponse>('http://localhost:8080/api/branches')
       .pipe(map(value => {
         return value.ids;

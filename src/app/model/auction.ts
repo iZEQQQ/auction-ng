@@ -12,7 +12,6 @@ export class Auction {
 
   private _category: Category;
 
-  // private _items: Array<OrderItem>;
 
   get id(): number {
     return this._id;

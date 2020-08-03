@@ -1,19 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DisplayBranchComponent } from './display-branch/display-branch.component';
-import { DisplayBranchListComponent } from './display-branch-list/display-branch-list.component';
-import { BranchListViewComponent } from './branch-list-view/branch-list-view.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {DisplayBranchComponent} from './display-branch/display-branch.component';
+import {DisplayBranchListComponent} from './display-branch-list/display-branch-list.component';
+import {BranchListViewComponent} from './branch-list-view/branch-list-view.component';
 import {BranchService} from "./branch.service";
 import {HttpClientModule} from "@angular/common/http";
-import { BranchEditViewComponent } from './branch-edit-view/branch-edit-view.component';
+import {BranchEditViewComponent} from './branch-edit-view/branch-edit-view.component';
 import {FormsModule} from "@angular/forms";
-import { CategoryListViewComponent } from './category-list-view/category-list-view.component';
-import { DisplayCategoryListComponent } from './display-category-list/display-category-list.component';
-import { DisplayCategoryComponent } from './display-category/display-category.component';
-import { CategoryEditViewComponent } from './category-edit-view/category-edit-view.component';
+import {CategoryListViewComponent} from './category-list-view/category-list-view.component';
+import {DisplayCategoryListComponent} from './display-category-list/display-category-list.component';
+import {DisplayCategoryComponent} from './display-category/display-category.component';
+import {CategoryEditViewComponent} from './category-edit-view/category-edit-view.component';
+import {AuctionListViewComponent} from './auction-list-view/auction-list-view.component';
+import {CategoryService} from "./category.service";
+import {AuctionService} from "./auction.service";
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { CategoryEditViewComponent } from './category-edit-view/category-edit-vi
     CategoryListViewComponent,
     DisplayCategoryListComponent,
     DisplayCategoryComponent,
-    CategoryEditViewComponent
+    CategoryEditViewComponent,
+    AuctionListViewComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,10 @@ import { CategoryEditViewComponent } from './category-edit-view/category-edit-vi
     HttpClientModule,
     FormsModule
   ],
-  providers: [BranchService],
+  providers: [BranchService, CategoryService, AuctionService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 

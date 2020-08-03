@@ -23,7 +23,7 @@ export class BranchListViewComponent implements OnInit {
 
   ngOnInit(): void {
     this._branches = [];
-    this.service.findBranches().subscribe(branches => {
+    this.service.getBranches().subscribe(branches => {
       branches.forEach(id => {
         this.service.getBranch(id).subscribe(branch => {
           this._branches.push(branch);

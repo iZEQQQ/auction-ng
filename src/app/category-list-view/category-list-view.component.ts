@@ -35,7 +35,7 @@ export class CategoryListViewComponent implements OnInit {
     this.branchService.getBranch(Number(idBranch)).subscribe(branch => {
       this._branch = branch;
     });
-    this.categoryService.findCategories(Number(idBranch)).subscribe(categories => {
+    this.categoryService.getCategories(Number(idBranch)).subscribe(categories => {
       this.fetchCategories(categories, Number(idBranch));
 
     });

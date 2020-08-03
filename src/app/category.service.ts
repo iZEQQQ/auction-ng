@@ -21,7 +21,7 @@ export class CategoryService {
     this.http = http;
   }
 
-  findCategories(id: number): Observable<number[]> {
+  getCategories(id: number): Observable<number[]> {
     return this.http.get<GetCategoriesResponse>('http://localhost:8080/api/branches/' + id + '/categories')
       .pipe(map(value => {
         return value.ids;
