@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Category} from "../model/category";
+import {Branch} from "../model/branch";
 
 @Component({
   selector: 'app-display-category',
@@ -8,10 +9,21 @@ import {Category} from "../model/category";
 })
 export class DisplayCategoryComponent implements OnInit {
 
-  private _category:Category;
+  private _category: Category;
+
+  private _branch: Branch;
 
   get category(): Category {
     return this._category;
+  }
+
+  @Input()
+  set branch(value: Branch) {
+    this._branch = value;
+  }
+
+  get branch(): Branch {
+    return this._branch;
   }
 
   @Input()
@@ -19,7 +31,8 @@ export class DisplayCategoryComponent implements OnInit {
     this._category = value;
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

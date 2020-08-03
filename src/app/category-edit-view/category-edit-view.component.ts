@@ -3,6 +3,7 @@ import {Category} from "../model/category";
 import {ActivatedRoute} from "@angular/router";
 import {CategoryService} from "../category.service";
 import {Branch} from "../model/branch";
+import {BranchService} from "../branch.service";
 
 @Component({
   selector: 'app-category-edit-view',
@@ -23,21 +24,24 @@ export class CategoryEditViewComponent implements OnInit {
     return this._category;
   }
 
-  constructor(private root: ActivatedRoute, private service: CategoryService) {
+  constructor(private root: ActivatedRoute,
+              private branchService: BranchService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
     let branchId = this.root.snapshot.paramMap.get('branchId')
-    this.service.getBranch(Number(branchId)).subscribe(branch => {
-      let categoryId = this.root.snapshot.paramMap.get('categoryId')
-      this.service.getCategory(branchId, Number(categoryId)).subscribe(category => {
+    this.branchService.getBranch(Number(branchId)).subscribe(branch => {
+      this._branch = branch;
+      let categoryId = this.root.snapshot.paramMap.get('categoryId');
+      this.categoryService.getCategory(Number(branchId), Number(categoryId)).subscribe(category => {
         this._category = category;
       });
     });
   }
 
-  onSubmit(){
-    this.service.putCategory(this._category);
+  onSubmit() {
+    this.categoryService.putCategory(this._branch, this._category);
   }
 
 }
