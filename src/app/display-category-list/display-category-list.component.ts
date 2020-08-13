@@ -11,6 +11,8 @@ export class DisplayCategoryListComponent implements OnInit {
 
   private _categories: Category[];
 
+  private _branch: Branch;
+
   get branch(): Branch {
     return this._branch;
   }
@@ -20,7 +22,6 @@ export class DisplayCategoryListComponent implements OnInit {
     this._branch = value;
   }
 
-  private _branch: Branch;
 
   @Input()
   set categories(value: Category[]) {
