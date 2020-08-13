@@ -1,1 +1,6 @@
-<p>display-auction works!</p>
+<div *ngIf="auction">
+  <p>Id: {{auction.id}}</p>
+  <p>Title: {{auction.name}}</p>
+  <a [routerLink]="'/branches/'+branch.id+'/categories/'+category.id+'/auctions/'+auction.id+'/edit'">Edit</a>
+  <a [routerLink]="'/branches/'+branch.id+'/categories/'+category.id+'/auctions/'+auction.id">Auction</a>
+</div>

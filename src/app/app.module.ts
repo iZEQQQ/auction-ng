@@ -19,6 +19,7 @@ import {CategoryService} from "./category.service";
 import {AuctionService} from "./auction.service";
 import { DisplayAuctionListComponent } from './display-auction-list/display-auction-list.component';
 import { DisplayAuctionComponent } from './display-auction/display-auction.component';
+import { AuctionEditViewComponent } from './auction-edit-view/auction-edit-view.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { DisplayAuctionComponent } from './display-auction/display-auction.compo
     CategoryEditViewComponent,
     AuctionListViewComponent,
     DisplayAuctionListComponent,
-    DisplayAuctionComponent
+    DisplayAuctionComponent,
+    AuctionEditViewComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import {BranchEditViewComponent} from "./branch-edit-view/branch-edit-view.compo
 import {CategoryListViewComponent} from "./category-list-view/category-list-view.component";
 import {CategoryEditViewComponent} from "./category-edit-view/category-edit-view.component";
 import {AuctionListViewComponent} from "./auction-list-view/auction-list-view.component";
+import {AuctionEditViewComponent} from "./auction-edit-view/auction-edit-view.component";
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'branches/:branchId/categories/:categoryId/auctions',
     component: AuctionListViewComponent
+  },
+  {
+    path: 'branches/:branchId/categories/:categoryId/auctions/:auctionId/edit',
+    component: AuctionEditViewComponent
   }
 
 ];

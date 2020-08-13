@@ -1,0 +1,8 @@
+<article>
+  <form (ngSubmit)="onSubmit()" *ngIf="auction">
+    <input type="text" [(ngModel)]="auction.name" name="name">
+    <input type="text" [(ngModel)]="auction.price" name="price">
+    <input type="text" [(ngModel)]="auction.quantity" name="quantity">
+    <input type="submit">
+  </form>
+</article>
