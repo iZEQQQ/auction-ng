@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Branch} from "../model/branch";
 import {Category} from "../model/category";
 import {Auction} from "../model/auction";
@@ -8,11 +8,11 @@ import {CategoryService} from "../category.service";
 import {AuctionService} from "../auction.service";
 
 @Component({
-  selector: 'app-auction-edit-view',
-  templateUrl: './auction-edit-view.component.html',
-  styleUrls: ['./auction-edit-view.component.css']
+  selector: 'app-auction-view',
+  templateUrl: './auction-view.component.html',
+  styleUrls: ['./auction-view.component.css']
 })
-export class AuctionEditViewComponent implements OnInit {
+export class AuctionViewComponent implements OnInit {
 
   private _branch: Branch;
 
@@ -35,8 +35,7 @@ export class AuctionEditViewComponent implements OnInit {
   constructor(private root: ActivatedRoute,
               private branchService: BranchService,
               private categoryService: CategoryService,
-              private auctionService: AuctionService) {
-  }
+              private auctionService: AuctionService) { }
 
   ngOnInit(): void {
     let branchId = this.root.snapshot.paramMap.get('branchId')
@@ -52,9 +51,4 @@ export class AuctionEditViewComponent implements OnInit {
       });
     });
   }
-
-  onSubmit() {
-    this.auctionService.putAuction(this._branch, this._category, this._auction);
-  }
-
 }

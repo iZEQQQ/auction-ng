@@ -21,7 +21,7 @@ export class AuctionService {
   }
 
   getAuctions(idBranch: number, idCategory: number,): Observable<number[]> {
-    return this.http.get<GetAuctionsResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories' + idCategory + '/auctions')
+    return this.http.get<GetAuctionsResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory + '/auctions')
       .pipe(map(value => {
         return value.ids;
       }));

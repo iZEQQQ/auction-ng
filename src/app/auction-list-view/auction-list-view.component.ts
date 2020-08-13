@@ -14,7 +14,7 @@ import {AuctionService} from "../auction.service";
 })
 export class AuctionListViewComponent implements OnInit {
 
-  private _auctions: Auction[];
+  private _auctions: Auction[] = [];
 
   private _category: Category;
 
@@ -49,13 +49,12 @@ export class AuctionListViewComponent implements OnInit {
     this.categoryService.getCategory(Number(idBranch), Number(idCategory)).subscribe(category => {
       this._category = category;
     });
-    this.auctionService.getAuctions(Number(idBranch), Number(idCategory),).subscribe(auctions => {
+    this.auctionService.getAuctions(Number(idBranch), Number(idCategory)).subscribe(auctions => {
       this.fetchAuctions(auctions, Number(idCategory), Number(idBranch));
-
     });
   }
 
-//TODO dodac komponenty na wyswietlanie i edycje
+
   private fetchAuctions(auctions: number[], categoryId, branchId: number): void {
     let auctionId = auctions.shift();
     if (auctionId) {
