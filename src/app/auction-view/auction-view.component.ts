@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Branch} from "../model/branch";
 import {Category} from "../model/category";
 import {Auction} from "../model/auction";
@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {BranchService} from "../branch.service";
 import {CategoryService} from "../category.service";
 import {AuctionService} from "../auction.service";
+import {BasketService} from "../basket.service";
 
 @Component({
   selector: 'app-auction-view',
@@ -35,7 +36,9 @@ export class AuctionViewComponent implements OnInit {
   constructor(private root: ActivatedRoute,
               private branchService: BranchService,
               private categoryService: CategoryService,
-              private auctionService: AuctionService) { }
+              private auctionService: AuctionService,
+              private basketService: BasketService) {
+  }
 
   ngOnInit(): void {
     let branchId = this.root.snapshot.paramMap.get('branchId')
@@ -51,4 +54,9 @@ export class AuctionViewComponent implements OnInit {
       });
     });
   }
+
+  buy(): void {
+    this.basketService.postBasketItem(this.auction);
+  }
 }
+

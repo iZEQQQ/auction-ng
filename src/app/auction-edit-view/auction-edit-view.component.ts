@@ -57,4 +57,5 @@ export class AuctionEditViewComponent implements OnInit {
     this.auctionService.putAuction(this._branch, this._category, this._auction);
   }
 
+
 }

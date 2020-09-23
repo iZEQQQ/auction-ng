@@ -1,4 +1,4 @@
-export class PutAuctionResponse {
+export class PutAuctionRequest {
 
   name: string;
 

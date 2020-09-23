@@ -40,7 +40,6 @@ export class BranchService {
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     req.name = branch.name;
-    // console.log(req);
     this.http.put<any>('http://localhost:8080/api/branches/' + branch.id, req)
       .subscribe(
         value => console.log(value),

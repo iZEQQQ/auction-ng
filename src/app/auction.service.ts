@@ -7,7 +7,7 @@ import {Branch} from "./model/branch";
 import {GetAuctionsResponse} from "./dto/get-auctions-response";
 import {Auction} from "./model/auction";
 import {GetAuctionResponse} from "./dto/get-auction-response";
-import {PutAuctionResponse} from "./dto/put-auction-response";
+import {PutAuctionRequest} from "./dto/put-auction-request";
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,7 @@ export class AuctionService {
   }
 
   putAuction(branch: Branch, category: Category, auction: Auction) {
-    let req = new PutAuctionResponse();
+    let req = new PutAuctionRequest();
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     req.name = auction.name;
