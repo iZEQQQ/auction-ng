@@ -1,0 +1,10 @@
+<div *ngIf="basketItems">
+  <table>
+    <tr *ngFor="let basketItem of basketItems">
+        <td>{{basketItem.auctionName}}</td>
+        <td>{{basketItem.quantity}}</td>
+        <td>{{basketItem.price}}</td>
+        <td>{{basketItem.wholePrice}}</td>
+    </tr>
+  </table>
+</div>

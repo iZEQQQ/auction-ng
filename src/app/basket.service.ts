@@ -2,6 +2,10 @@ import {Injectable} from '@angular/core';
 import {Auction} from "./model/auction";
 import {PostBasketItemRequest} from "./dto/post-basket-item-request";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {GetBasketItemsResponse} from "./dto/get-basket-items-response";
+import {map} from "rxjs/operators";
+import {BasketItem} from "./model/basket-item";
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +31,25 @@ export class BasketService {
 
   }
 
+  getBasketItem(): Observable<BasketItem[]> {
+    return this.http.get<GetBasketItemsResponse>('http://localhost:8080/api/users/Jax/basket/items/')
+      .pipe(map(value => {
+        let basketItems: BasketItem[] = [];
+        value.items.forEach(item => {
+          let basketItem: BasketItem = new BasketItem();
+          basketItem.auctionName = item.auctionName;
+          basketItem.basketElementId = item.basketElementId;
+          basketItem.price = item.price;
+          basketItem.quantity = item.quantity;
+          basketItems.push(basketItem);
+        });
+        return basketItems;
+      }));
+  }
 
-//  TODO dodac posty do categori branchy i aukcji reszte put delete do basketu i metody pobierania na elementy koszyka i wywolac to z angulara
+
+//  TODO dodac posty do categori branchy i aukcji reszte put delete do basketu
+//   i metody pobierania na elementy koszyka i wywolac to z angulara
 
 
 }
