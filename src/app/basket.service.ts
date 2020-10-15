@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Auction} from "./model/auction";
-import {PostBasketItemRequest} from "./dto/post-basket-item-request";
+import {PostBasketItemRequest} from "./dto/basket/post-basket-item-request";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {GetBasketItemsResponse} from "./dto/get-basket-items-response";
+import {GetBasketItemsResponse} from "./dto/basket/get-basket-items-response";
 import {map} from "rxjs/operators";
 import {BasketItem} from "./model/basket-item";
 

@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {GetBranchesResponse} from "./dto/get-branches-response";
+import {GetBranchesResponse} from "./dto/branch/get-branches-response";
 import {map} from "rxjs/operators";
-import {GetCategoriesResponse} from "./dto/get-categories-response";
+import {GetCategoriesResponse} from "./dto/category/get-categories-response";
 import {Branch} from "./model/branch";
-import {GetBranchResponse} from "./dto/get-branch-response";
+import {GetBranchResponse} from "./dto/branch/get-branch-response";
 import {Category} from "./model/category";
-import {GetCategoryResponse} from "./dto/get-category-response";
-import {PutCategoryRequest} from "./dto/put-category-request";
+import {GetCategoryResponse} from "./dto/category/get-category-response";
+import {PutCategoryRequest} from "./dto/category/put-category-request";
 
 @Injectable({
   providedIn: 'root'

@@ -4,10 +4,10 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Category} from "./model/category";
 import {Branch} from "./model/branch";
-import {GetAuctionsResponse} from "./dto/get-auctions-response";
+import {GetAuctionsResponse} from "./dto/auction/get-auctions-response";
 import {Auction} from "./model/auction";
-import {GetAuctionResponse} from "./dto/get-auction-response";
-import {PutAuctionRequest} from "./dto/put-auction-request";
+import {GetAuctionResponse} from "./dto/auction/get-auction-response";
+import {PutAuctionRequest} from "./dto/auction/put-auction-request";
 
 @Injectable({
   providedIn: 'root'

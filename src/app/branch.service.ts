@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {GetBranchesResponse} from "./dto/get-branches-response";
+import {GetBranchesResponse} from "./dto/branch/get-branches-response";
 import {map} from "rxjs/operators";
 import {Branch} from "./model/branch";
-import {GetBranchResponse} from "./dto/get-branch-response";
-import {PutBranchRequest} from "./dto/put-branch-request";
+import {GetBranchResponse} from "./dto/branch/get-branch-response";
+import {PutBranchRequest} from "./dto/branch/put-branch-request";
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,8 @@ export class BranchService {
 
   putBranch(branch: Branch) {
     let req = new PutBranchRequest();
-    let headers = new HttpHeaders();
+    let headers = new HttpHeaders()
+
     headers.set('Content-Type', 'application/json');
     req.name = branch.name;
     this.http.put<any>('http://localhost:8080/api/branches/' + branch.id, req)
