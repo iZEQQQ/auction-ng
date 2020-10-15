@@ -8,6 +8,7 @@ import {GetAuctionsResponse} from "./dto/auction/get-auctions-response";
 import {Auction} from "./model/auction";
 import {GetAuctionResponse} from "./dto/auction/get-auction-response";
 import {PutAuctionRequest} from "./dto/auction/put-auction-request";
+import {PostAuctionRequest} from "./dto/auction/post-auction-request";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,21 @@ export class AuctionService {
         auction.id = value.id;
         return auction;
       }));
+  }
+
+
+  //TODO to samo z branchem i categoria
+  postAuction(branch: Branch, category: Category, auction: Auction):void{
+    let req = new PostAuctionRequest();
+    let headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    req.name = auction.name;
+    req.price = auction.price;
+    req.quantity = auction.quantity;
+    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id + '/auctions/' + auction.id, req)
+      .subscribe(
+        value => console.log(value),
+        error => console.log(error));
   }
 
   putAuction(branch: Branch, category: Category, auction: Auction) {

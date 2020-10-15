@@ -25,7 +25,7 @@ export class BranchEditViewComponent implements OnInit {
       this._branch = branch;
     });
   }
-
+//TODO  if branch id { put}else {post}
   onSubmit() {
     this.service.putBranch(this._branch);
   }

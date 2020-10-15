@@ -9,6 +9,7 @@ import {GetBranchResponse} from "./dto/branch/get-branch-response";
 import {Category} from "./model/category";
 import {GetCategoryResponse} from "./dto/category/get-category-response";
 import {PutCategoryRequest} from "./dto/category/put-category-request";
+import {PostCategoryRequest} from "./dto/category/post-category-request";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,16 @@ export class CategoryService {
         category.id = value.id;
         return category;
       }));
+  }
+  //TODO to samo co z branchem
+  postCategory(branch: Branch, category: Category):void{
+    let req = new PostCategoryRequest();
+    let headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id, req)
+      .subscribe(
+        value => console.log(value),
+        error => console.log(error));
   }
 
   putCategory(branch: Branch, category: Category) {

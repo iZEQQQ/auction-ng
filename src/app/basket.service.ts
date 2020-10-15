@@ -27,7 +27,7 @@ export class BasketService {
     this.http.post('http://localhost:8080/api/users/Jax/basket/items/', req)
       .subscribe(
         value => console.log(value),
-        error => console.log(error))
+        error => console.log(error));
 
   }
 
