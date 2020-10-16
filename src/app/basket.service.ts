@@ -24,7 +24,7 @@ export class BasketService {
     headers.set('Content-Type', 'application/json');
     req.auctionId = auction.id;
     req.quantity = 1;
-    this.http.post('http://localhost:8080/api/users/Jax/basket/items/', req)
+    this.http.post('http://localhost:8080/api/users/Jax/basket/items/', req, {withCredentials: true})
       .subscribe(
         value => console.log(value),
         error => console.log(error));
@@ -32,7 +32,7 @@ export class BasketService {
   }
 
   getBasketItem(): Observable<BasketItem[]> {
-    return this.http.get<GetBasketItemsResponse>('http://localhost:8080/api/users/Jax/basket/items/')
+    return this.http.get<GetBasketItemsResponse>('http://localhost:8080/api/users/Jax/basket/items/', {withCredentials: true})
       .pipe(map(value => {
         let basketItems: BasketItem[] = [];
         value.items.forEach(item => {
@@ -46,10 +46,6 @@ export class BasketService {
         return basketItems;
       }));
   }
-
-
-//  TODO dodac posty do categori branchy i aukcji reszte put delete do basketu
-//   i metody pobierania na elementy koszyka i wywolac to z angulara
 
 
 }
