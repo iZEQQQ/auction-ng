@@ -23,14 +23,14 @@ export class CategoryService {
   }
 
   getCategories(id: number): Observable<number[]> {
-    return this.http.get<GetCategoriesResponse>('http://localhost:8080/api/branches/' + id + '/categories')
+    return this.http.get<GetCategoriesResponse>('http://localhost:8080/api/branches/' + id + '/categories',{withCredentials: true})
       .pipe(map(value => {
         return value.ids;
       }));
   }
 
   getCategory(idBranch: number, idCategory: number): Observable<Category> {
-    return this.http.get<GetCategoryResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory)
+    return this.http.get<GetCategoryResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory,{withCredentials: true})
       .pipe(map(value => {
         let category: Category = new Category();
         category.name = value.name;
@@ -43,7 +43,7 @@ export class CategoryService {
     let req = new PostCategoryRequest();
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id, req)
+    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id, req,{withCredentials: true})
       .subscribe(
         value => console.log(value),
         error => console.log(error));
@@ -54,7 +54,7 @@ export class CategoryService {
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     req.name = category.name;
-    this.http.put<any>('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id, req)
+    this.http.put<any>('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id, req,{withCredentials: true})
       .subscribe(
         value => console.log(value),
         error => console.log(error)

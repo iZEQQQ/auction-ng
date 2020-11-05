@@ -20,14 +20,14 @@ export class BranchService {
   }
 
   getBranches(): Observable<number[]> {
-    return this.http.get<GetBranchesResponse>('http://localhost:8080/api/branches')
+    return this.http.get<GetBranchesResponse>('http://localhost:8080/api/branches',{withCredentials: true})
       .pipe(map(value => {
         return value.ids;
       }));
   }
 
   getBranch(id: number): Observable<Branch> {
-    return this.http.get<GetBranchResponse>('http://localhost:8080/api/branches/' + id)
+    return this.http.get<GetBranchResponse>('http://localhost:8080/api/branches/' + id,{withCredentials: true})
       .pipe(map(value => {
         let branch: Branch = new Branch();
         branch.name = value.name;

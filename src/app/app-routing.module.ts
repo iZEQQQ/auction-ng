@@ -35,9 +35,14 @@ const routes: Routes = [
     component: AuctionEditViewComponent
   },
   {
+    path: 'branches/:branchId/categories/:categoryId/auctions/add',
+    component: AuctionEditViewComponent
+  },
+  {
     path: 'branches/:branchId/categories/:categoryId/auctions/:auctionId',
     component: AuctionViewComponent
   }
+
 
 ];
 

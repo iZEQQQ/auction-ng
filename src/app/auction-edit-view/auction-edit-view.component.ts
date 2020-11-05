@@ -20,6 +20,8 @@ export class AuctionEditViewComponent implements OnInit {
 
   private _auction: Auction;
 
+  private _editFlag = true;
+
   get branch(): Branch {
     return this._branch;
   }
@@ -38,6 +40,8 @@ export class AuctionEditViewComponent implements OnInit {
               private auctionService: AuctionService) {
   }
 
+  //TODO sprawdzic czy istnieje i flaga z boola wywolac post albo put
+
   ngOnInit(): void {
     let branchId = this.root.snapshot.paramMap.get('branchId')
     this.branchService.getBranch(Number(branchId)).subscribe(branch => {
@@ -46,16 +50,24 @@ export class AuctionEditViewComponent implements OnInit {
       this.categoryService.getCategory(Number(branchId), Number(categoryId)).subscribe(category => {
         this._category = category;
         let auctionId = this.root.snapshot.paramMap.get('auctionId');
-        this.auctionService.getAuction(Number(branchId), Number(categoryId), Number(auctionId)).subscribe(auction => {
-          this._auction = auction;
-        });
+        if (auctionId) {
+          this.auctionService.getAuction(Number(branchId), Number(categoryId), Number(auctionId)).subscribe(auction => {
+            this._auction = auction;
+          });
+        } else {
+          this._editFlag = false;
+          this._auction = new Auction();
+          this._auction.category = category;
+        }
       });
     });
   }
 
   onSubmit() {
-    this.auctionService.putAuction(this._branch, this._category, this._auction);
+    if (this._editFlag) {
+      this.auctionService.putAuction(this._branch, this._category, this._auction);
+    } else {
+      this.auctionService.postAuction(this._branch, this._category, this._auction);
+    }
   }
-
-
 }

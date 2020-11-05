@@ -22,14 +22,14 @@ export class AuctionService {
   }
 
   getAuctions(idBranch: number, idCategory: number,): Observable<number[]> {
-    return this.http.get<GetAuctionsResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory + '/auctions')
+    return this.http.get<GetAuctionsResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory + '/auctions',{withCredentials: true})
       .pipe(map(value => {
         return value.ids;
       }));
   }
 
   getAuction(idBranch: number, idCategory: number, idAuction: number): Observable<Auction> {
-    return this.http.get<GetAuctionResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory + '/auctions/' + idAuction)
+    return this.http.get<GetAuctionResponse>('http://localhost:8080/api/branches/' + idBranch + '/categories/' + idCategory + '/auctions/' + idAuction,{withCredentials: true})
       .pipe(map(value => {
         let auction: Auction = new Auction();
         auction.quantity = value.quantity;
@@ -49,7 +49,7 @@ export class AuctionService {
     req.name = auction.name;
     req.price = auction.price;
     req.quantity = auction.quantity;
-    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id + '/auctions/' + auction.id, req)
+    this.http.post('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id + '/auctions', req,{withCredentials: true})
       .subscribe(
         value => console.log(value),
         error => console.log(error));
@@ -62,7 +62,7 @@ export class AuctionService {
     req.name = auction.name;
     req.price = auction.price;
     req.quantity = auction.quantity;
-    this.http.put<any>('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id + '/auctions/' + auction.id, req)
+    this.http.put<any>('http://localhost:8080/api/branches/' + branch.id + '/categories/' + category.id + '/auctions/' + auction.id, req,{withCredentials: true})
       .subscribe(
         value => console.log(value),
         error => console.log(error)

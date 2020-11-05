@@ -1,5 +1,7 @@
 <div *ngIf="auctions">
-  <app-display-auction *ngFor="let auction of auctions"  [branch]="branch" [category]="category" [auction]="auction"></app-display-auction>
+  <app-display-auction *ngFor="let auction of auctions" [branch]="branch" [category]="category"
+                       [auction]="auction"></app-display-auction>
+  <a *ngIf="branch&&category" [routerLink]="'/branches/'+branch.id+'/categories/'+category.id+'/auctions/add'">Add</a>
 </div>
 
 
